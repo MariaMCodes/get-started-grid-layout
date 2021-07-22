@@ -20,6 +20,51 @@
         <div class="box e">E</div>
         <div class="box f">F</div>
     </div>
+    <br>
+    <br>
+
+    <!--Line-based placement shorthand - grid-row and grid-column-->
+    <div class="wrapper">
+        <div class="item a">A</div>
+        <div class="item b">B</div>
+        <div class="item c">C</div>
+        <div class="item d">D</div>
+        <div class="item e">E</div>
+        <div class="item f">F</div>
+
+        <!--We can achieve the same result as in example 2 using a shorthand syntax declaring the start and end values at once. Values are separated with a / and again it would be valid to omit the / and the end value as we are spanning only one track. CHECK CSS NOTES-->
+
+        <!--Line-based placement shorthand - grid-area-->
+
+        <!--We can achieve the same result as in example 2 and 3 declaring all four values with the grid-area property. Again values are separated with a /. The order of the values is row-start/column-start/row-end/column-end. CHECK CSS NOTES-->
+    </div>
+    <br>
+    <br>
+    <!--Line-based placement named lines-->
+
+    <!--We can name lines rather than targeting them by number. Name the line inside brackets. In the code below you can see that I name the very first column line col1-start then comes the 100 pixel first column track. Having named the lines you can use the names, rather than numbers.
+
+You always have the line numbers to use - even if you name some or all of your lines.-->
+    <div class="wrapper-namedlines">
+        <div class="item aa">A</div>
+        <div class="item bb">B</div>
+        <div class="item cc">C</div>
+        <div class="item dd">D</div>
+    </div>
+    <br>
+    <br>
+    <!--Line-based placement named lines with spans-->
+
+    <!--You can give lines the same name and then use the span keyword to target lines of a certain name. This is really useful if you want to create a complex grid with multiple content tracks and gutters.
+
+I have made a slightly larger grid here and have named all of the Grid Lines before the content tracks with col and all of the lines before the row tracks with row. I can then start at a certain column line by using col <line number> and span by saying span <number of lines>.-->
+    <div class="wrapper-namedlinesspan">
+        <div class="item aaa">A</div>
+        <div class="item bbb">B</div>
+        <div class="item ccc">C</div>
+        <div class="item ddd">D</div>
+        <div class="item eee">E</div>
+    </div>
 </body>
 
 </html>

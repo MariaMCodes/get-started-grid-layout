@@ -100,3 +100,73 @@ This means that extra space is distributed around the tracks and our desired 10 
 .item3a {
     grid-column: 3 / 5;
 }
+
+
+/* Multiple tracks in a track-list with auto-fill and minmax() */
+
+
+/* The repeat syntax can take a track-list rather than a single value, this means you can repeat a more complex track-list. You can use minmax() in this track list, here I am making the max of my larger tracks 2fr, and the smaller ones 1fr. This means that the larger tracks will have more of any leftover space assigned.
+
+Currently requires Chrome Canary */
+
+.box2:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+}
+
+.wrapper3 {
+    display: grid;
+    border: 1px solid #000;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr) minmax(200px, 2fr));
+}
+
+
+/* look what happens when resize the windown */
+
+
+/* auto-fill vs. auto-fit */
+
+
+/* In the first example we use the auto-fill keyword for repeat. We get as many tracks with a minimum of 200 pixels and maximum of 1fr as will fit in the container.
+
+In the second example we use the auto-fit keyword for repeat. We get as many tracks with a minimum of 200 pixels and maximum of 1fr as will fit in the container.
+
+After auto-placement any empty tracks are collapsed to 0. So our items can expand to take up the remaining space. */
+
+.box3 {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.box3:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+}
+
+
+/* auto-fill */
+
+.wrapper4 {
+    display: grid;
+    border: 1px solid #000;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin-bottom: 2em;
+}
+
+
+/* auto-fit */
+
+.wrapper5 {
+    display: grid;
+    border: 1px solid #000;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+/* look what happens when resize the windown */

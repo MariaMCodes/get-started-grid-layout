@@ -74,6 +74,52 @@ By default the implicit grid tracks created by the implicit lines will be auto s
 }
 
 
+/* Implicit named grid lines */
+
+
+/* When using Named Areas implicit named lines are created by appending -start and -end to the named area you have defined. They can be used in the same way as lines you have explicitly named. */
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+.header {
+    grid-area: header;
+}
+
+.wrapper6 {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 120px 120px 120px;
+    grid-template-areas: "header  header  header" "sidebar content content";
+    background-color: #fff;
+    color: #444;
+}
+
+.box5 {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.header {
+    background-color: #999;
+}
+
+.overlay {
+    background-color: red;
+    z-index: 10;
+    grid-column: content-start / content-end;
+    grid-row: header-start / content-end;
+}
+
+
 /* Grid auto-placement */
 
 
@@ -99,4 +145,107 @@ In this example I have a set of 12 boxes. I’ve used nth-child to switch the ba
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(6, 100px);
+}
+
+
+/* Grid auto-flow column */
+
+
+/* The default behavior of Grid Auto Flow is to layout the elements by row, working along the row until there are no more slots then moving on to the next row. If a row is not declared then an implicit grid track will be created to hold the items.
+
+You can change this behavior by using the grid-auto-flow property. The default value is row but you can also specify column. The elements will then be laid out column by column, adding new columns if needed. */
+
+.box3 {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.box3:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+}
+
+.wrapper4 {
+    width: 600px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: 100px 100px 100px;
+    grid-auto-flow: column;
+}
+
+
+/* Grid auto-placement mixed with placed items */
+
+
+/* If a child element has been placed then the auto-placement algorithm will place that first and then work out what to do with any child elements that have not been placed.
+
+In this example I have placed box2 on the grid and also made it span 3 grid lines. The rest of the boxes continue to lay out as before. */
+
+.box4 {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.box4:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+}
+
+.wrapper5 {
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-gap: 10px;
+}
+
+.boxa {
+    grid-column: 3 / 6;
+    grid-row: 2 / 3;
+    outline: 2px solid red;
+    z-index: 10;
+}
+
+
+/* Using Order */
+
+
+/* Grid supports the order property also found in Flexbox. If you are explicitly positioning Grid Items then order will affect painting order, and therefore the order in which items stack up where no z-index has been applied.
+
+If using auto-placement then the order property will affect how items are placed on the grid. In this example all boxes have been give an order of 1, so they continue to be positioned in DOM order. However box1 has an order of 3 and box2 an order of 2. These boxes have a higher order value so are positioned after all of the boxes with an order value of 1. */
+
+.box5 {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    order: 1;
+    /* all boxes have been give an order of 1 except boxaa and boxbb */
+}
+
+.box5:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+}
+
+.wrapper6 {
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-gap: 10px;
+}
+
+.boxaa {
+    order: 3;
+}
+
+.boxbb {
+    order: 2;
 }
