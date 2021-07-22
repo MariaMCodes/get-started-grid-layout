@@ -1,0 +1,102 @@
+body {
+    margin: 40px;
+}
+
+
+/* Defining a Grid */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+}
+
+.box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+
+/* Explicit and Implicit Grid */
+
+
+/* When we use grid-template-columns and grid-template-rows we create an Explicit Grid. However if we try and place an item outside of that grid the browser will create an Implicit Grid line or lines in order to hold that item.
+
+In the code below I have put 'e' between grid column lines 4 and 5, these are not described with grid-template-rows, so an implicit grid line 5 is created.
+
+By default the implicit grid tracks created by the implicit lines will be auto sized. However, you can size the tracks with the grid-auto-columns and grid-auto-rows properties. I have sized my auto tracks as 100px to match the rest of the column tracks in my grid. */
+
+.wrapper2 {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 100px 100px 100px;
+    grid-auto-columns: 100px;
+    background-color: #fff;
+    color: #444;
+}
+
+.box1 {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.a {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.b {
+    grid-column: 3;
+    grid-row: 1 / 3;
+}
+
+.c {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.d {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.e {
+    grid-column: 4 / 5;
+    grid-row: 1 / 4;
+}
+
+
+/* Grid auto-placement */
+
+
+/* If you declare a Grid on an element and do not position the child elements then the auto-placememt algorithm dictates what the browser should do about those unplaced grid items.
+
+In this example I have a set of 12 boxes. I’ve used nth-child to switch the background color on the even boxes to make this example clear. I have declared a Grid and created rows and columns but not positioned any of the children. As you can see the boxes all lay out on the Grid despite having no placement assigned to them. */
+
+.box2 {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.box2:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+}
+
+.wrapper3 {
+    width: 600px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(6, 100px);
+}

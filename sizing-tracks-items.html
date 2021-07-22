@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sizing of tracks and items</title>
+    <link rel="stylesheet" href="css/styles2.css" type="text/css">
+</head>
+
+<body>
+    <!--Percentage-based grids and gaps-->
+    <p><em>To see the gap you need Chrome 55 or Firefox.</em></p>
+
+    <p>A grid with a width of 90%. Six column tracks of 10% each, 5 gutter tracks of 2% each.</p>
+
+    <p>The grid-gap property controls columns and rows but as the grid has no height, the <a href="https://github.com/w3c/csswg-drafts/issues/345#issuecomment-240333816">row gap resolves to 0</a>.</p>
+
+    <div class="wrapper2">
+        <div class="box2">1</div>
+        <div class="box2">2</div>
+        <div class="box2">3</div>
+        <div class="box2">4</div>
+        <div class="box2">5</div>
+        <div class="box2">6</div>
+        <div class="box2">7</div>
+        <div class="box2">8</div>
+        <div class="box2">9</div>
+        <div class="box2">10</div>
+        <div class="box2">11</div>
+        <div class="box2">12</div>
+    </div>
+
+    <p>If we give the grid a height, there is something for 2% to be a percentage of. So we get a gap.</p>
+
+    <div class="wrapper2 with-height">
+        <div class="box2">1</div>
+        <div class="box2">2</div>
+        <div class="box2">3</div>
+        <div class="box2">4</div>
+        <div class="box2">5</div>
+        <div class="box2">6</div>
+        <div class="box2">7</div>
+        <div class="box2">8</div>
+        <div class="box2">9</div>
+        <div class="box2">10</div>
+        <div class="box2">11</div>
+        <div class="box2">12</div>
+    </div>
+    <br>
+    <br>
+    <!--A simple minmax example-->
+    <div class="wrapper3">
+        <div class="box3">A</div>
+        <div class="box3">B</div>
+        <div class="box3">C</div>
+    </div>
+    <br>
+    <br>
+    <!--minmax() and spanning columns and rows-->
+    <div class="wrapper4">
+        <div class="box4 a2">A</div>
+        <div class="box4 b2">B</div>
+        <div class="box4 c2">C</div>
+        <div class="box4 d2">D</div>
+        <div class="box4 e2">E</div>
+        <div class="box4 f2">F</div>
+        <div class="box4 g">G</div>
+        <div class="box4 h">H</div>
+        <div class="box4 i">I</div>
+        <div class="box4 j">J</div>
+        <div class="box4 k">K</div>
+        <div class="box4 l">L</div>
+        <div class="box4 m">M</div>
+    </div>
+</body>
+
+</html>
